@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  nginx-proxy:
+    container_name: "nginx-proxy"
+    build: "./nginx-proxy"
+    ports:
+      - "8080:80"
+    links:
+      - "service1"
+      - "service2"
+
+  service1:
+    build: "./service1"
+    container_name: "service1"
+
+  service2:
+    build: "./service2"
+    container_name: "service2"
